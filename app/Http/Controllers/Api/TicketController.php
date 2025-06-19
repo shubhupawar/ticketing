@@ -55,10 +55,11 @@ class TicketController extends Controller
 
     public function show($id)
     {
-        $ticket = Ticket::with(['attachments', 'replies.attachments', 'replies.user'])
-            ->where('user_id', auth()->id())
-            ->findOrFail($id);
+        $ticket = Ticket::with(['attachments', 'replies.attachments', 'replies.user'])->where('id', $id)->where('user_id', auth()->id())->first();
 
+        if(!$ticket){
+            return response()->json(['message' => 'Ticket does not exist or you are not authorized to view it.'], 404);
+        }
         return response()->json($ticket);
     }
 
