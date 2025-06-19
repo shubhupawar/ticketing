@@ -76,9 +76,13 @@ php artisan serve
 
 All ticket routes require `Bearer Token` in headers.
 
-## File Uploads
+## 📎 File Uploads
 
 Stored in `storage/app/public/uploads`. Use `php artisan storage:link` to expose them.
+
+## 📬 Postman Collection
+
+Stored in `extras`, If using Postman, import the provided postman_collection.json file to test API endpoints.
 
 ## License
 
