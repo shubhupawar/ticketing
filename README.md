@@ -90,5 +90,5 @@ MIT
  
 ### 🙌 Author
 
-Developed by Devendra Barange
+Developed by Shubhu Pawar
 🔗 GitHub: https://github.com/shubhupawar/ticketing.git

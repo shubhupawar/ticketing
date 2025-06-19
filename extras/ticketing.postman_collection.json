@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "acda8302-a47a-4396-bb04-c5c1faefa8ff",
+		"name": "ticketing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29498575"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Test User\",\r\n  \"email\": \"test@example.com\",\r\n  \"password\": \"password\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost/ticketing/api/register"
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"test@example.com\",\r\n  \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost/ticketing/api/login"
+			},
+			"response": []
+		},
+		{
+			"name": "send ticket without attachment",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 2|Lzmoxj9blt7HZKayqSWSKi3XHK2whyYPxcYXgmVlc24961b4",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "subject",
+							"value": "My first ticket",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "This is a test ticket only",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost/ticketing/api/tickets"
+			},
+			"response": []
+		},
+		{
+			"name": "send tickets with attachment",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 2|Lzmoxj9blt7HZKayqSWSKi3XHK2whyYPxcYXgmVlc24961b4",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "subject",
+							"value": "Ticket with file",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Testing file upload",
+							"type": "text"
+						},
+						{
+							"key": "attachment",
+							"type": "file",
+							"src": "/C:/Users/Averoft/Downloads/Screenshot 2025-06-17 205920.png"
+						}
+					]
+				},
+				"url": "http://localhost/ticketing/api/tickets"
+			},
+			"response": []
+		},
+		{
+			"name": "send reply with attachment",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 2|Lzmoxj9blt7HZKayqSWSKi3XHK2whyYPxcYXgmVlc24961b4",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "subject",
+							"value": "Ticket with file",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Testing file upload",
+							"type": "text"
+						},
+						{
+							"key": "attachment",
+							"type": "file",
+							"src": "/C:/Users/Averoft/Downloads/Screenshot 2025-06-17 205920.png"
+						}
+					]
+				},
+				"url": "http://localhost/ticketing/api/tickets"
+			},
+			"response": []
+		},
+		{
+			"name": "view tickets",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 2|Lzmoxj9blt7HZKayqSWSKi3XHK2whyYPxcYXgmVlc24961b4",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost/ticketing/api/tickets"
+			},
+			"response": []
+		},
+		{
+			"name": "View ticket details",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 2|Lzmoxj9blt7HZKayqSWSKi3XHK2whyYPxcYXgmVlc24961b4",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost/ticketing/api/tickets/3"
+			},
+			"response": []
+		}
+	]
+}
