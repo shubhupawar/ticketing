@@ -3,34 +3,23 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
-
 use App\Http\Controllers\API\TicketController;
 use App\Http\Controllers\API\ReplyController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
-
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-
-Route::post('/register', [AuthController::class, 'register']);
-Route::post('/login', [AuthController::class, 'login']);
+Route::controller(AuthController::class)->group(function () {
+    Route::post('/register', 'register');
+    Route::post('/login', 'login');
+});
 
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/tickets', [TicketController::class, 'store']);
-    Route::get('/tickets', [TicketController::class, 'index']);
-    Route::get('/tickets/{id}', [TicketController::class, 'show']);
-    Route::post('/tickets/{id}/reply', [ReplyController::class, 'store']);
+    Route::controller(TicketController::class)->group(function () {
+        Route::post('/tickets', 'store');
+        Route::get('/tickets', 'index');
+        Route::get('/tickets/{id}', 'show');
+    });
+    Route::controller(ReplyController::class)->group(function () {
+        Route::post('/tickets/{id}/reply', 'store');
+    });
 });
 
