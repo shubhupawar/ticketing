@@ -1,22 +1,67 @@
-# Laravel Ticketing System
+# 🎫 Laravel Ticketing System
 
-A simple ticketing system API built with Laravel and Sanctum.
+A simple ticketing system built with **Laravel**, featuring:
 
-## Features
+- API with Laravel Sanctum authentication
+- Blade-based frontend using Bootstrap
+- File attachments for tickets and replies
+- Role-based data access and validation
 
-- User registration and login (API token via Sanctum)
-- Create support tickets with optional attachments
-- Reply to own tickets with optional attachments
-- File uploads: jpg, png, pdf, docx (max 2MB)
-- Only ticket owners can view/reply
+---
+
+## 🚀 Features
+
+### ✅ API (Laravel Sanctum)
+
+- **User registration & login** via API
+- **Token-based authentication**
+- Create, view, and list tickets
+- Add replies to tickets
+- Upload attachments (jpg, png, pdf, docx — max 2MB)
+
+### 🖥️ Web Frontend (Blade + Bootstrap)
+
+- Authentication (register, login, logout)
+- Dashboard listing user tickets
+- Create ticket with file upload
+- View ticket details, attachments, and replies
+- Submit replies with optional attachments
 
 ## Setup
 
-1. Clone the repo  
-2. Run `composer install`  
-3. Run `php artisan migrate --seed`  
-4. Run `php artisan storage:link`  
-5. Start server: `php artisan serve`  
+1. Clone the repo
+
+```bash
+git clone https://github.com/yourusername/ticketing.git
+cd ticketing
+```
+
+2. Install dependencies
+
+```bash
+composer install
+```
+3. Configure .env
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+4. Setup your database in .env
+
+5. Run
+```bash
+php artisan migrate --seed
+```
+
+6. Stoarge link
+```bash
+php artisan storage:link
+```
+
+7. Serve the app 
+```bash
+php artisan serve
+```
 
 ## API Endpoints
 
@@ -38,3 +83,8 @@ Stored in `storage/app/public/uploads`. Use `php artisan storage:link` to expose
 ## License
 
 MIT
+ 
+### 🙌 Author
+
+Developed by Devendra Barange
+🔗 GitHub: https://github.com/shubhupawar/ticketing.git
